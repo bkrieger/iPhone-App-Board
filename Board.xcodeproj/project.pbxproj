@@ -19,6 +19,7 @@
 		C57F17A11648722D00491896 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57F179F1648722D00491896 /* MainStoryboard.storyboard */; };
 		C57F17A41648722D00491896 /* BTKMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57F17A31648722D00491896 /* BTKMasterViewController.m */; };
 		C57F17A71648722D00491896 /* BTKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57F17A61648722D00491896 /* BTKDetailViewController.m */; };
+		C57F68B516487BB800A13D55 /* BTKAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57F68B416487BB800A13D55 /* BTKAddPostViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		C57F17A31648722D00491896 /* BTKMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTKMasterViewController.m; sourceTree = "<group>"; };
 		C57F17A51648722D00491896 /* BTKDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTKDetailViewController.h; sourceTree = "<group>"; };
 		C57F17A61648722D00491896 /* BTKDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTKDetailViewController.m; sourceTree = "<group>"; };
+		C57F68B316487BB800A13D55 /* BTKAddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTKAddPostViewController.h; sourceTree = "<group>"; };
+		C57F68B416487BB800A13D55 /* BTKAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKAddPostViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				C57F17961648722D00491896 /* BTKAppDelegate.h */,
 				C57F17971648722D00491896 /* BTKAppDelegate.m */,
 				C57F179F1648722D00491896 /* MainStoryboard.storyboard */,
+				C57F68B316487BB800A13D55 /* BTKAddPostViewController.h */,
+				C57F68B416487BB800A13D55 /* BTKAddPostViewController.m */,
 				C57F17A21648722D00491896 /* BTKMasterViewController.h */,
 				C57F17A31648722D00491896 /* BTKMasterViewController.m */,
 				C57F17A51648722D00491896 /* BTKDetailViewController.h */,
@@ -183,6 +188,7 @@
 				C57F17981648722D00491896 /* BTKAppDelegate.m in Sources */,
 				C57F17A41648722D00491896 /* BTKMasterViewController.m in Sources */,
 				C57F17A71648722D00491896 /* BTKDetailViewController.m in Sources */,
+				C57F68B516487BB800A13D55 /* BTKAddPostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				C57F17AC1648722D00491896 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
