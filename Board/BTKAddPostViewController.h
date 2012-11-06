@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BTKAddPostViewController : UIViewController
+@interface BTKAddPostViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
+    CGPoint scrollViewDefaultOffset;
+
+}
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *bodyTextView;
+- (IBAction)post:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
+
+UIBarButtonItem* doneButton;

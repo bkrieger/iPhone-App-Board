@@ -8,6 +8,7 @@
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -24,7 +25,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="BTKMasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -75,15 +76,90 @@
         <!--Add Post View Controller - Add Post-->
         <scene sceneID="z0d-Q5-1El">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RvT-3I-zjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="23T-Lb-1Kc" customClass="BTKAddPostViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aKr-Cu-LEF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-Yd-zex">
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhV-it-rLF">
+                                        <color key="backgroundColor" white="0.92769160583941601" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="182" id="Drm-jZ-G5l"/>
+                                            <constraint firstAttribute="width" constant="267" id="ZM6-Hi-FwW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="23T-Lb-1Kc" id="2zn-dn-1Rr"/>
+                                        </connections>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZJ-Yc-tz3">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="Tbp-E1-W3Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="23T-Lb-1Kc" id="PTi-RT-ePg"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiR-ld-12k">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="EPB-JY-7eV"/>
+                                            <constraint firstAttribute="width" constant="240" id="jAq-pq-MRa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS7-rf-n7O">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Post">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="post:" destination="23T-Lb-1Kc" eventType="touchUpInside" id="lIE-Wf-g27"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FhV-it-rLF" firstAttribute="leading" secondItem="eiZ-Yd-zex" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0XF-jH-N7c"/>
+                                    <constraint firstItem="FhV-it-rLF" firstAttribute="centerX" secondItem="OiR-ld-12k" secondAttribute="centerX" type="default" id="0ne-PF-7T6"/>
+                                    <constraint firstAttribute="bottom" secondItem="eS7-rf-n7O" secondAttribute="bottom" constant="111" id="90O-lP-InW"/>
+                                    <constraint firstItem="eS7-rf-n7O" firstAttribute="top" secondItem="eiZ-Yd-zex" secondAttribute="top" constant="262" id="R3o-qH-2sa"/>
+                                    <constraint firstItem="OiR-ld-12k" firstAttribute="centerX" secondItem="eS7-rf-n7O" secondAttribute="centerX" type="default" id="WU5-sj-rBn"/>
+                                    <constraint firstItem="FhV-it-rLF" firstAttribute="top" secondItem="uZJ-Yc-tz3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZOZ-Fd-gNf"/>
+                                    <constraint firstItem="uZJ-Yc-tz3" firstAttribute="top" secondItem="eiZ-Yd-zex" secondAttribute="top" constant="14" id="mdc-FW-TGI"/>
+                                    <constraint firstItem="OiR-ld-12k" firstAttribute="centerY" secondItem="eS7-rf-n7O" secondAttribute="centerY" type="default" id="vwa-IN-c1F"/>
+                                    <constraint firstAttribute="trailing" secondItem="uZJ-Yc-tz3" secondAttribute="trailing" constant="27" id="xUN-QQ-Abt"/>
+                                    <constraint firstItem="uZJ-Yc-tz3" firstAttribute="centerX" secondItem="FhV-it-rLF" secondAttribute="centerX" type="default" id="yih-2R-I4s"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eiZ-Yd-zex" firstAttribute="bottom" secondItem="aKr-Cu-LEF" secondAttribute="bottom" type="default" id="5ZI-3g-zW4"/>
+                            <constraint firstItem="eiZ-Yd-zex" firstAttribute="top" secondItem="aKr-Cu-LEF" secondAttribute="top" type="default" id="966-hI-r0J"/>
+                            <constraint firstItem="eiZ-Yd-zex" firstAttribute="leading" secondItem="aKr-Cu-LEF" secondAttribute="leading" type="default" id="H1o-m7-ygt"/>
+                            <constraint firstItem="eiZ-Yd-zex" firstAttribute="trailing" secondItem="aKr-Cu-LEF" secondAttribute="trailing" type="default" id="lXs-dQ-L9F"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Post" id="bvI-LY-SvB"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="FhV-it-rLF" id="NEI-Pn-BFZ"/>
+                        <outlet property="loadingLabel" destination="OiR-ld-12k" id="5QD-15-9Mt"/>
+                        <outlet property="postButton" destination="eS7-rf-n7O" id="8b4-wr-bSN"/>
+                        <outlet property="scrollView" destination="eiZ-Yd-zex" id="iDB-rC-bQa"/>
+                        <outlet property="titleTextField" destination="uZJ-Yc-tz3" id="wlf-3i-fJL"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RvT-3I-zjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="874" y="-263"/>
         </scene>
@@ -92,27 +168,11 @@
             <objects>
                 <viewController storyboardIdentifier="" title="Detail" id="21" customClass="BTKDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="27" firstAttribute="centerY" secondItem="22" secondAttribute="centerY" type="default" id="7cE-gL-0wv"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="26"/>
-                    <connections>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,12 +182,17 @@
     <classes>
         <class className="BTKAddPostViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BTKAddPostViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="post:"/>
+                <relationship kind="outlet" name="bodyTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="BTKDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BTKDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
         </class>
         <class className="BTKMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BTKMasterViewController.h"/>

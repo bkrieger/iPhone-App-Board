@@ -11,7 +11,7 @@
 #import "BTKDetailViewController.h"
 
 @interface BTKMasterViewController () {
-    NSMutableArray *_objects;
+    NSArray *_objects;
     NSMutableData *_data;
 }
 @end
@@ -30,9 +30,10 @@
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(getPosts)];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
     [self getPosts];
-
 }
 
 - (void)getPosts {
@@ -79,15 +80,6 @@
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
 
 /*
 // Override to support rearranging the table view.
@@ -116,14 +108,6 @@
 
 #pragma mark - NSURLConnectionDataDelegate methods
 
-/**
- * Here are the NSURLConnectionDataDelegate methods that handle the callbacks.
- * This is mostly primarily and three step process, assuming you get no errors.
- *
- * 1. You receive a response.
- * 2. You receive any number of pieces of data.
- * 3. The connection finishes loading. That is, you are ready to use the combined pieces of data.
- */
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     _data = [[NSMutableData alloc] init];
@@ -134,13 +118,14 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Error getting posts");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:@"Unable to connect with server. Please check your internet connection." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSDictionary *posts = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    NSLog(@"%@", posts); // If you want to see what the posts response looks like.
-    _objects = (NSMutableArray*)posts;
+    //Display in reverse order (newest first)
+    _objects = [[((NSArray*)posts) reverseObjectEnumerator] allObjects];
     [self.tableView reloadData];
 }
 
