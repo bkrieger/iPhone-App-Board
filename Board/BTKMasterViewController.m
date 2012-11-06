@@ -124,8 +124,12 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSDictionary *posts = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    //Display in reverse order (newest first)
-    _objects = [[((NSArray*)posts) reverseObjectEnumerator] allObjects];
+    //Display newest first
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updated_at"
+                                                  ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    _objects = [((NSArray*)posts) sortedArrayUsingDescriptors:sortDescriptors];
     [self.tableView reloadData];
 }
 

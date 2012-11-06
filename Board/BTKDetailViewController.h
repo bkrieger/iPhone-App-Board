@@ -11,4 +11,8 @@
 @interface BTKDetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UITextView *bodyLabel;
 
+@end

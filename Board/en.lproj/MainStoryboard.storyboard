@@ -170,9 +170,52 @@
                     <view key="view" contentMode="scaleToFill" id="22">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-fp-SvU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9zx-sF-ASJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnu-EP-oKn">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="EHc-Ky-MqM"/>
+                                    <constraint firstAttribute="height" constant="327" id="M2Z-11-H06"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSd-CW-5PL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Xt6-Q4-pAv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qSd-CW-5PL" firstAttribute="top" secondItem="22" secondAttribute="top" constant="47" id="B0b-c2-E3L"/>
+                            <constraint firstAttribute="trailing" secondItem="l8N-fp-SvU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HhU-WN-1d4"/>
+                            <constraint firstItem="qSd-CW-5PL" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ftA-Ue-L0e"/>
+                            <constraint firstItem="Hnu-EP-oKn" firstAttribute="top" secondItem="22" secondAttribute="top" constant="71" id="jfC-ls-kUa"/>
+                            <constraint firstItem="qSd-CW-5PL" firstAttribute="centerX" secondItem="Hnu-EP-oKn" secondAttribute="centerX" type="default" id="p1r-cX-8zE"/>
+                            <constraint firstItem="l8N-fp-SvU" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="peP-Yg-Qkg"/>
+                            <constraint firstAttribute="trailing" secondItem="qSd-CW-5PL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="v2d-sg-K1o"/>
+                            <constraint firstItem="l8N-fp-SvU" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ynd-9L-P8Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="26"/>
+                    <connections>
+                        <outlet property="bodyLabel" destination="Hnu-EP-oKn" id="SA4-BN-pdi"/>
+                        <outlet property="timeLabel" destination="qSd-CW-5PL" id="6hA-sR-2kK"/>
+                        <outlet property="titleLabel" destination="l8N-fp-SvU" id="kAT-G3-Zh5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,6 +236,11 @@
         </class>
         <class className="BTKDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BTKDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bodyLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="BTKMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BTKMasterViewController.h"/>
