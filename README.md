@@ -1,0 +1,1 @@
+This is a message board app for CIS-195. All posts are gotten for the server in the MasterViewController. Posts can be added in the AddPostViewController. Posts can be viewed in the DetailViewController.
